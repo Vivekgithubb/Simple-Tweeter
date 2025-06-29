@@ -28,6 +28,7 @@ It allows users to:
 ![EJS](https://img.shields.io/badge/View-EJS-blue?logo=ejs)
 ![TailwindCSS](https://img.shields.io/badge/Styling-TailwindCSS-blueviolet?logo=tailwindcss)
 ![JWT](https://img.shields.io/badge/Auth-JWT-orange?logo=jsonwebtokens)
+
 🛠️ Tech Stack
 
 - **Backend:** Node.js, Express.js
