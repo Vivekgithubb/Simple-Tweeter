@@ -41,12 +41,19 @@ It allows users to:
 📂 Project Structure (Brief Overview)
 SimpleTweeter/
 ├── app.js # Main Express app
+
 ├── Models/
+
 │ ├── user.js # Mongoose User schema
+
 │ └── post.js # Mongoose Post schema
+
 ├── views/ # EJS templates
+
 ├── public/ # Static files
+
 └── package.json
+
 
 📌 Notes
 - SimpleTweeter is a **local-only** app — there’s no public feed or cross-user interaction.  
