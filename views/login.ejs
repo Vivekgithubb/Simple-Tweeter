@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      class="w-full min-h-screen bg-zinc-900 text-white p-10 flex flex-col justify-center items-center"
+    >
+      <div
+        class="flex flex-col justify-center items-center p-4 bg-zinc-800 rounded-2xl shadow-lg shadow-cyan-600/50 ring-2 ring-blue-500"
+      >
+        <h1 class="text-3xl mb-10">Login To Account</h1>
+        <form
+          action="/login"
+          method="post"
+          class="flex flex-col gap-2 items-center"
+        >
+          <input
+            type="email"
+            placeholder="Email.."
+            name="email"
+            class="px-3 py-2 outline-none bg-zinc-900 rounded-md w-100 focus:ring-2 focus:ring-blue-500"
+          />
+
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            class="px-3 py-2 outline-none bg-zinc-900 rounded-md w-100 mb-5 focus:ring-2 focus:ring-blue-500"
+          />
+          <input
+            type="submit"
+            value="Login"
+            class="bg-red-500 rounded-lg p-2 w-30 shadow-red-500 ring-2 ring-red-500"
+          />
+        </form>
+        <% if (error === "notfound") { %>
+        <h1 class="mt-3 text-cyan-500 text-md">
+          No User, Create a new account
+        </h1>
+        <% } %>
+        <h1 class="text-sm text-zinc-400 mt-3">
+          Dont have an Account?
+          <a href="/index" class="italic text-blue-400">Click here</a> to
+          register Now
+        </h1>
+      </div>
+    </div>
+  </body>
+</html>

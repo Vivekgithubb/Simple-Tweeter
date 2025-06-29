@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div
+      class="w-full min-h-screen bg-zinc-900 text-white p-10 flex flex-col justify-center items-center"
+    >
+      <div
+        class="p-3 justify-center items-center flex flex-col bg-zinc-800 rounded-2xl shadow-lg shadow-cyan-600/50 ring-2 ring-blue-500"
+      >
+        <h1 class="text-3xl mb-5">Create Account</h1>
+        <form
+          action="/register"
+          method="post"
+          class="flex flex-col justify-center items-center gap-2"
+        >
+          <input
+            type="text"
+            placeholder="Name.."
+            name="name"
+            class="px-3 py-2 outline-none bg-zinc-900 rounded-md w-100"
+          />
+          <input
+            type="text"
+            placeholder="Username.."
+            name="username"
+            class="px-3 py-2 outline-none bg-zinc-900 rounded-md w-100"
+          />
+          <input
+            type="email"
+            placeholder="Email.."
+            name="email"
+            class="px-3 py-2 outline-none bg-zinc-900 rounded-md w-100"
+          />
+          <input
+            type="number"
+            placeholder="Age.."
+            name="age"
+            class="px-3 py-2 outline-none bg-zinc-900 rounded-md w-100"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            name="password"
+            class="px-3 py-2 outline-none bg-zinc-900 rounded-md w-100 mb-3"
+          />
+          <input
+            type="submit"
+            value="Create Account"
+            class="bg-red-500 rounded-lg p-2 w-30"
+          />
+        </form>
+        <h1 class="text-sm text-zinc-400 mt-3">
+          Already have an Account?
+          <a href="/login" class="italic text-blue-400">Click here</a> to Login
+        </h1>
+      </div>
+    </div>
+  </body>
+</html>
