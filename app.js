@@ -7,17 +7,21 @@ const postModel = require("./Models/post");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const { default: mongoose } = require("mongoose");
+const upload = require("./utils/multer");
 
 app.set("view engine", "ejs");
 
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "Public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.get("/", (req, res) => {
   // res.render("login");
   res.render("login", { error: req.query.error || null });
+});
+app.get("/profile/upload", (req, res) => {
+  res.render("profileUpload");
 });
 app.get("/index", (req, res) => {
   res.render("index");
@@ -70,6 +74,7 @@ app.post("/register", async (req, res) => {
       let token = jwt.sign({ email: email, userid: user._id }, "shhhhVivek");
       res.cookie("token", token);
       res.send("You have been Registered");
+      res.redirect("/login");
     });
   });
 });
@@ -112,6 +117,21 @@ app.post("/edit/:id", async (req, res) => {
   );
   res.redirect("/profile");
 });
+
+app.post(
+  "/upload",
+  isLoggedIn,
+  upload.single("image"),
+  async function (req, res, next) {
+    if (!req.file) return res.send("No File selected");
+    let user = await userModel.findOneAndUpdate(
+      { email: req.user.email },
+      { ProfilePic: req.file.filename }
+    );
+    await user.save();
+    res.redirect("/profile");
+  }
+);
 
 function isLoggedIn(req, res, next) {
   if (!req.cookies.token) {

@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+// const { Profiler } = require("react");
 mongoose.connect("mongodb://127.0.0.1:27017/MiniProject1");
 
 const userSchema = mongoose.Schema({
@@ -7,6 +8,10 @@ const userSchema = mongoose.Schema({
   age: Number,
   email: String,
   password: String,
+  ProfilePic: {
+    type: String,
+    default: "default.jpg",
+  },
   post: [
     {
       type: mongoose.Schema.Types.ObjectId,
